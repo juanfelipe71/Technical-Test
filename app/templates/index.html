@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Inventory</title>
+</head>
+<body>
+    
+    <h1>AHT Global Inventory</h1>
+    <a href="/add" class="btn btn-primary">Add</a>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">price</th>
+            <th scope="col">mac_address</th>
+            <th scope="col">serial_number</th>
+            <th scope="col">manufacturer</th>
+            <th scope="col">description</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for item in inventory %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.mac_address }}</td>
+                <td>{{ item.serial_number }}</td>
+                <td>{{ item.manufacturer }}</td>
+                <td>{{ item.description }}</td>
+                
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.mac_address }}</td>
+                <td>{{ item.serial_number }}</td>
+                <td>{{ item.manufacturer }}</td>
+                <td>{{ item.description }}</td>
+                <td>
+                    <!-- Botón de edición -->
+                    <a href="/edit/{{ item.id }}" class="btn btn-primary btn-sm me-1">Edit</a>
+                    <!-- Botón de eliminación -->
+                    <a href="/delete/{{ item.id }}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
